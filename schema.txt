@@ -1,0 +1,20 @@
+items:
+id: number
+name: string
+price: number (numeric(10,2))
+quantity: number (integer)
+category: foreign key
+
+
+
+category
+id: number
+name: string
+
+
+CREATE TABLE usernames (
+   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   username VARCHAR ( 255 ) 
+);
+
+   highestStudent_id integer REFERENCES students
