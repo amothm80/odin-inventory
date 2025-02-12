@@ -18,3 +18,30 @@ CREATE TABLE usernames (
 );
 
    highestStudent_id integer REFERENCES students
+
+
+                                  Table "public.items"
+  Column  |          Type          | Collation | Nullable |           Default            
+----------+------------------------+-----------+----------+------------------------------
+ id       | integer                |           | not null | generated always as identity
+ name     | character varying(255) |           |          | 
+ make     | character varying(255) |           |          | 
+ price    | numeric(10,2)          |           |          | 
+ quantity | integer                |           |          | 
+ category | integer                |           |          | 
+Indexes:
+    "items_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "items_category_fkey" FOREIGN KEY (category) REFERENCES categories(id)
+
+
+
+                               Table "public.categories"
+ Column |          Type          | Collation | Nullable |           Default            
+--------+------------------------+-----------+----------+------------------------------
+ id     | integer                |           | not null | generated always as identity
+ name   | character varying(255) |           |          | 
+Indexes:
+    "categories_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "items" CONSTRAINT "items_category_fkey" FOREIGN KEY (category) REFERENCES categories(id)                                                                              
