@@ -1,0 +1,8 @@
+<h1>main</h1>
+<ul>
+    <% if (locals.itemsResult) { %>
+     <% itemsResult.forEach(element => { %>
+        <li><a href=<%= element.id %>><%= element.name %></a></li>
+     <% }) %>
+    <% } %>
+    </ul>

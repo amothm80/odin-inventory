@@ -1,0 +1,8 @@
+<h1>aside</h1>
+<ul>
+<% if (locals.categoriesResult) { %>
+ <% categoriesResult.forEach(element => { %>
+    <li><a href=<%= element.id %>><%= element.name %></a></li>
+ <% }) %>
+<% } %>
+</ul>
