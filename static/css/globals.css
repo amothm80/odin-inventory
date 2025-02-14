@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:700|Inter:400");
+
+:root {
+  --text-50: hsl(246, 76%, 95%);
+  --text-100: hsl(248, 76%, 90%);
+  --text-200: hsl(247, 75%, 80%);
+  --text-300: hsl(247, 75%, 70%);
+  --text-400: hsl(247, 75%, 60%);
+  --text-500: hsl(247, 75%, 50%);
+  --text-600: hsl(247, 75%, 40%);
+  --text-700: hsl(247, 75%, 30%);
+  --text-800: hsl(247, 75%, 20%);
+  --text-900: hsl(248, 76%, 10%);
+  --text-950: hsl(246, 76%, 5%);
+  --background: #f9f7f7;
+  --primary: #dbe2ef;
+  --secondary: #3f72af;
+  --accent: #112d4e;
+}
+* {
+  color: var(--text-900);
+}
+body {
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Inter";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+
+h1 {
+  font-size: 3.053rem; /* 48.8px */
+}
+
+h2 {
+  font-size: 2.442rem; /* 39.04px */
+}
+
+h3 {
+  font-size: 1.954rem; /* 31.2px */
+}
+
+h4 {
+  font-size: 1.563rem; /* 24.96px */
+}
+
+h5 {
+  font-size: 1.25rem; /* 20px */
+}
+
+small {
+  font-size: 0.8rem; /* 12.8px */
+}
