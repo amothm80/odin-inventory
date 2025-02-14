@@ -2,7 +2,9 @@
 <ul>
     <% if (locals.itemsResult) { %>
      <% itemsResult.forEach(element => { %>
-        <li><a href=<%= element.id %>><%= element.name %></a></li>
+        <li><p><%= element.name %></p>
+         <!-- <img src="images/placeholder-image.png" alt=""> -->
+      </li>
      <% }) %>
     <% } %>
     </ul>

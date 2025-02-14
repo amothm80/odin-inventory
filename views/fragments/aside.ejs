@@ -2,7 +2,7 @@
 <ul>
 <% if (locals.categoriesResult) { %>
  <% categoriesResult.forEach(element => { %>
-    <li><a href=<%= element.id %>><%= element.name %></a></li>
+    <li><a href="/category/<%= element.id %>"><%= element.name %></a></li>
  <% }) %>
 <% } %>
 </ul>
