@@ -1,8 +1,13 @@
-<h1>aside</h1>
-<ul>
-<% if (locals.categoriesResult) { %>
- <% categoriesResult.forEach(element => { %>
-    <li><a href="/category/<%= element.id %>"><%= element.name %></a></li>
- <% }) %>
-<% } %>
-</ul>
+<form class="category-form shadow" action="/addCategory" method="post">
+  <input
+    class="category-input"
+    type="text"
+    name="categoryName"
+    id="categoryName"
+  />
+  <button class="button category-submit" type="submit">Add Category</button>
+</form>
+
+<% if (locals.categoriesResult) { %> <% categoriesResult.forEach(element => { %>
+<a href="/category/<%= element.id %>"><%= element.name %></a>
+<% }) %> <% } %>
