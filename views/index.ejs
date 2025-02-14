@@ -2,9 +2,17 @@
 <html lang="en">
   <%- include('fragments/head') %>
   <body>
-      <div class="header"><%- include('fragments/header') %></div>
-      <div class="aside"><%- include('fragments/aside') %></div>
-      <div class="main"><%- include('fragments/main') %></div>
-      <div class="footer"><%- include('fragments/footer') %></div>
+    <header><%- include('fragments/header') %></header>
+    <main>
+      <div class="aside body-section shadow">
+        <%- include('fragments/aside') %>
+      </div>
+      <div class="items-main body-section shadow">
+        <%- include('fragments/main') %>
+      </div>
+      <div class="footer body-section shadow">
+        <%- include('fragments/footer') %>
+      </div>
+    </main>
   </body>
 </html>
