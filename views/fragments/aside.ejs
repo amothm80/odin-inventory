@@ -9,5 +9,17 @@
 </form>
 
 <% if (locals.categoriesResult) { %> <% categoriesResult.forEach(element => { %>
-<a href="/category/<%= element.id %>"><%= element.name %></a>
-<% }) %> <% } %>
+<% if (locals.selectedCategory && selectedCategory == element.id) { %>
+<div class="category-link-container selected-category">
+  <a class="category-link" href="/category/<%= element.id %>"
+    ><%= element.name %></a
+  >
+</div>
+<% } else { %>
+<div class="category-link-container">
+  <a class="category-link" href="/category/<%= element.id %>"
+    ><%= element.name %></a
+  >
+</div>
+
+<% } %> <% }) %> <% } %>

@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import path from 'path'
 import rootRouter from './routers/root.js'
 import categoryRouter from './routers/category.js'
+import addCategoryRouter from './routers/addCategory.js'
 
 // import rootRouter from './routes/root.js'
 // import newRouter from './routes/new.js'
@@ -19,8 +20,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('static'))
 // app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.get('/',rootRouter)
+app.use('/',rootRouter)
 app.use('/category',categoryRouter)
+app.use('/addCategory',addCategoryRouter)
 // app.use('/new',newRouter)
 // app.use('/delete',deleteRouter)
 
