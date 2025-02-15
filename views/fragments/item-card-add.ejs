@@ -1,0 +1,21 @@
+<% if (locals.addItem && Boolean(addItem)) { %>
+  <form class="item-card-container shadow" action="\saveItem" method="post">
+    <label for="name">Item Name</label>
+    <input type="text" id="name" name="name">
+    <label for="make">Item Make</label>
+    <input type="text" id="make" name="make">
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price">
+    <label for="quantity">Quantity</label>
+    <input type="text" id="quantity" name="quantity">
+    <button type="submit">Save</button>
+    <button>Cancel</button>
+  </form>
+  
+ <% } else { %>
+  <form class="item-card-container shadow" action="\addItem" method="post">
+    <button class="item-add-button" type="submit"><h1>+</h1></button>
+  </form>
+<% } %>
+
+
