@@ -46,6 +46,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 }
 
 .category-input {
@@ -192,4 +193,10 @@ a {
 
 .item-add-button h1{
   color: var(--text50);
+}
+
+.error-message{
+  width: 80%;
+  color: red;
+  text-align: left;
 }

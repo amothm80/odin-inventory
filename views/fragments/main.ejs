@@ -1,8 +1,6 @@
 <ul class="item-cards">
-  <form class="item-card-container shadow" action="\addItem" method="post">
-    <button class="item-add-button" type="submit"><h1>+</h1></button>
-  </form>
-
-  <% if (locals.itemsResult) { %> <% itemsResult.forEach(item => { %>
+  <% if (locals.itemsResult) { %>
+  <%-include('item-card-add')%>
+  <% itemsResult.forEach(item => { %>
   <%-include('item-card',{item:item})%> <% }) %> <% } %>
 </ul>
