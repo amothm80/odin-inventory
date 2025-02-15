@@ -10,8 +10,8 @@
 
 <% if (locals.categoriesResult) { %> <% categoriesResult.forEach(element => { %>
 <% if (locals.selectedCategory && selectedCategory == element.id) { %>
-<div class="category-link-container selected-category">
-  <a class="category-link" href="/category/<%= element.id %>"
+<div class="category-link-container-selected">
+  <a class="category-link-selected" href="/category/<%= element.id %>"
     ><%= element.name %></a
   >
 </div>
