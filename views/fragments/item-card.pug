@@ -1,0 +1,13 @@
+li.item-card-container.shadow 
+    .item-photo 
+        img(src='/images/placeholder-image.png')
+    .item-details 
+        h5=item.name 
+        p.items-right= '$'+item.price 
+        p 
+            span by 
+            =item.make
+        p.items-right= item.quantity    
+            |
+            |
+            span item(s) left

@@ -1,0 +1,18 @@
+form(class='category-form shadow' action='/addCategory' method='post')
+    input(class='category-input' type='text' name='categoryName' id='categoryName')
+    if locals.errors 
+        -const caterror = errors.find(error=>error.path == 'categoryName')
+        small(class='error-message')=caterror.msg
+    button(class='button category-submit' type='submit') Add Category
+if locals.categoriesResult
+    each category in categoriesResult
+        - let sel_cat = false
+        if locals.selectedCategory && selectedCategory == category.id 
+            - sel_cat = true
+        div(class={
+            "category-link-container-selected": sel_cat==true, 
+            "category-link-container": sel_cat==false})
+            a(class={
+                "category-link-selected": sel_cat==true, 
+                "category-link": sel_cat==false} 
+                href='/category/'+category.id)=category.name
