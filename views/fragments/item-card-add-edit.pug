@@ -9,7 +9,7 @@ if addItem
         label(for="quantity") Quantity 
         input(type="text" id="quantity" name="quantity")
         button(type="submit") Save
-        button(type="cancel") Cancel 
+        button(type="cancel" onclick="history.back()") Cancel 
 else 
     form(class="item-card-container shadow" action="/addItem" method="post")
         button(class="item-add-button" type="submit")
