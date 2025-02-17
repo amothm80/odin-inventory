@@ -1,0 +1,11 @@
+form(class="item-card-container shadow" action="/saveItem" method="post")
+    label(for="name") Item Name 
+    input(type="text" id="name" name="name" value=`${item ? item.name : ''}`)
+    label(for="make") Item Make 
+    input(type="text" id="make" name="make" value=`${item ? item.make : ''}`)
+    label(for="price") Price 
+    input(type="number" id="price" name="price" value=`${item ? item.price : ''}`)
+    label(for="quantity") Quantity 
+    input(type="text" id="quantity" name="quantity" value=`${item ? item.quantity : ''}`)
+    button(type="submit") Save
+    button(type="cancel" onclick="history.back()") Cancel 

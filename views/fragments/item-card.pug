@@ -1,18 +1,15 @@
-li.item-card-container.shadow 
-    .item-photo 
-        img(src='/images/placeholder-image.png')
-    .item-details 
-        h5=item.name 
-        p.items-right= '$'+item.price 
-        p 
-            span by 
-            =item.make
-        p.items-right= item.quantity    
-            |
-            |
-            span item(s) left
-        -console.log(locals.settings)
-        a(href="/editItem/"+item.id)
-            button Edit Item
-            
-        //- button(onclick="history.back()")
+if locals.editItem && item.id == editItem
+    include item-edit-form
+else
+    li.item-card-container.shadow 
+        .item-photo 
+            img(src='/images/placeholder-image.png')
+        .item-details 
+            h5=item.name 
+            p.items-right= '$'+item.price 
+            p <span>by</span> #{item.make}
+            p.items-right #{item.quantity} <span>item(s) left</span>
+            a(href="editItem/"+item.id)
+                button Edit Item
+                
+            //- button(onclick="history.back()")

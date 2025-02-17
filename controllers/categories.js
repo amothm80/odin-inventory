@@ -12,6 +12,14 @@ export async function getSelectedCategory(req, res, next) {
   next();
 }
 
+export async function checkEditItemInCategory(req,res,next){
+  if (req.query.editItem){
+    console.log("edit item "+req.query.editItem)
+    res.locals.editItem = req.query.editItem;
+  }
+  next();
+}
+
 export async function checkAddItemInCategory(req,res,next){
   if (req.query.addItem){
     res.locals.addItem = req.query.addItem;
