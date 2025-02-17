@@ -1,4 +1,5 @@
 form(class="item-card-container shadow" action="/saveItem" method="post")
+    input(type="number" id="id" name="" value=`${item?item.id : ''}` style="display:none")
     label(for="name") Item Name 
     input(type="text" id="name" name="name" value=`${item ? item.name : ''}`)
     label(for="make") Item Make 
