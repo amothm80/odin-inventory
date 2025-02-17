@@ -7,8 +7,14 @@ export async function getAllCategoriesDB() {
 }
 
 //read items
-export async function getAllItemsForCategoryDB(id) {
-  const { rows } = await pool.query("SELECT * FROM items where category = $1",[id]);
+export async function getAllItemsForCategoryDB(catId) {
+  const { rows } = await pool.query("SELECT * FROM items where category = $1",[catId]);
+  return rows;
+}
+
+export async function getItemByIdDB(id){
+  console.log(id)
+  const {rows} = await pool.query("SELECT * FROM items where id = $1",[id])
   return rows;
 }
 

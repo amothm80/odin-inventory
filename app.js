@@ -8,10 +8,6 @@ import addItemRouter from './routers/addItem.js'
 import saveItemRouter from './routers/saveItem.js'
 import { getAllCategories } from './controllers/categories.js';
 
-// import rootRouter from './routes/root.js'
-// import newRouter from './routes/new.js'
-// import deleteRouter from './routes/delete.js'
-
 const app = express();
 const PORT = 3000;
 
@@ -27,8 +23,7 @@ app.use(getAllCategories)
 app.use('/',rootRouter)
 app.use('/category',categoryRouter)
 app.use('/addCategory',addCategoryRouter)
-app.use('/addItem',addItemRouter)
-app.use('/saveItem', saveItemRouter)
+// app.use('/saveItem', saveItemRouter)
 
 app.listen(PORT,(err)=>{
     if (err)  console.log(err)
