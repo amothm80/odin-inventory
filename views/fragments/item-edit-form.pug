@@ -8,4 +8,6 @@ form(class="item-card-container shadow" action="/saveItem" method="post")
     label(for="quantity") Quantity 
     input(type="text" id="quantity" name="quantity" value=`${item ? item.quantity : ''}`)
     button(type="submit") Save
-    button(type="cancel" onclick="history.back()") Cancel 
+    -console.log("cancel link " + locals.cancelLink)
+    a(href=`${locals.cancelLink ? cancelLink : ''}`) cancel
+    //- button(type="cancel" onclick="history.back()") Cancel 

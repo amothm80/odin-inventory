@@ -14,7 +14,8 @@ export async function getSelectedCategory(req, res, next) {
 
 export async function checkEditItemInCategory(req,res,next){
   if (req.query.editItem){
-    console.log("edit item "+req.query.editItem)
+    const refererPath = new URL(req.get("Referrer")).pathname;
+    res.locals.cancelLink = refererPath;
     res.locals.editItem = req.query.editItem;
   }
   next();
@@ -22,6 +23,8 @@ export async function checkEditItemInCategory(req,res,next){
 
 export async function checkAddItemInCategory(req,res,next){
   if (req.query.addItem){
+    const refererPath = new URL(req.get("Referrer")).pathname;
+    res.locals.cancelLink = refererPath;
     res.locals.addItem = req.query.addItem;
   }
   next();
