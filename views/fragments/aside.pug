@@ -16,3 +16,7 @@ if locals.categoriesResult
                 "category-link-selected": sel_cat==true, 
                 "category-link": sel_cat==false} 
                 href='/category/'+category.id)=category.name
+            a(href='/category/'+category.id+'/edit')
+                button edit
+            a(href='/category/'+category.id+'/delete')
+                button delete 
