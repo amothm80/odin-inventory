@@ -1,4 +1,4 @@
-form(class="item-card-container shadow" action="/saveItem" method="post")
+form(class="item-card-container shadow" action="/item/saveItem" method="post")
     input(type="number" id="id" name="itemId" value=`${item?item.id : ''}` style="display:none")
     label(for="name") Item Name 
     input(type="text" id="name" name="itemName" value=`${item ? item.name : ''}`)

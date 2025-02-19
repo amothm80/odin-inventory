@@ -1,11 +1,9 @@
 import express from 'express'
-import morgan from 'morgan'
-import path from 'path'
+// import morgan from 'morgan'
+// import path from 'path'
 import rootRouter from './routers/root.js'
 import categoryRouter from './routers/category.js'
-import addCategoryRouter from './routers/addCategory.js'
-import addItemRouter from './routers/addItem.js'
-import saveItemRouter from './routers/saveItem.js'
+import itemRouter from './routers/item.js'
 import { getAllCategories } from './controllers/categories.js';
 
 const app = express();
@@ -22,7 +20,7 @@ app.use(express.static('static'))
 app.use(getAllCategories)
 app.use('/',rootRouter)
 app.use('/category',categoryRouter)
-app.use('/addCategory',addCategoryRouter)
+app.use('/item',itemRouter)
 // app.use('/saveItem', saveItemRouter)
 
 app.listen(PORT,(err)=>{

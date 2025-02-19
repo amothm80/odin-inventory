@@ -1,4 +1,4 @@
-form(class='category-form shadow' action='/addCategory' method='post')
+form(class='category-form shadow' action='/category/addCategory' method='post')
     input(class='category-input' type='text' name='categoryName' id='categoryName')
     if locals.errors 
         -const caterror = errors.find(error=>error.path == 'categoryName')

@@ -9,9 +9,9 @@ else
             p.items-right= '$'+item.price 
             p <span>by</span> #{item.make}
             p.items-right #{item.quantity} <span>item(s) left</span>
-            a(href="editItem/"+item.id)
+            a(href="/item/editItem/"+item.id)
                 button Edit Item
-            a(href="deleteItem/"+item.id)
+            a(href="/item/deleteItem/"+item.id)
                 button Delete Item
                 
             //- button(onclick="history.back()")
