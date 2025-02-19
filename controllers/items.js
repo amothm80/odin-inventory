@@ -37,13 +37,35 @@ export const checkItemSchema = checkSchema({
     },
   },
   itemQuantity: {
-    errorMessage: "Invalid item price",
+    errorMessage: "Invalid item quantity",
     escape: true,
     trim: true,
     notEmpty: true,
     isNumeric: true
   }
 });
+
+export async function saveItem(req, res, next) {
+  const result = validationResult(req);
+  if (result.isEmpty()) {
+    const data = matchedData(req);
+    console.log('item data')
+    console.log(data)
+    // await addCategoryDB(data.categoryName);
+    // res.redirect("/");
+    console.log('save item params')
+    const refererPath = new URL(req.get("Referrer")).pathname;
+    const param =   new URL(req.get("Referrer")).searchParams.get('editItem')
+    console.log(param)
+    res.redirect(refererPath);
+  } else {
+    console.log('item data errors')
+    console.log(result);
+    res.locals.errors = result.array();
+    res.status(400).render("index");
+  }
+}
+
 
 export async function getItemById(req, res, next) {
   const { itemId } = req.params;
