@@ -2,12 +2,20 @@ form(class="item-card-container shadow" action="/item/saveItem" method="post")
     input(type="number" id="id" name="itemId" value=`${item?item.id : ''}` style="display:none")
     label(for="name") Item Name 
     input(type="text" id="name" name="itemName" value=`${item ? item.name : ''}`)
+    if locals.itemerrors
+        small(class='error-message')=itemerrors.itemName
     label(for="make") Item Make 
     input(type="text" id="make" name="itemMake" value=`${item ? item.make : ''}`)
+    if locals.itemerrors
+        small(class='error-message')=itemerrors.itemMake
     label(for="price") Price 
     input(type="number" id="price" name="itemPrice" value=`${item ? item.price : ''}`)
+    if locals.itemerrors
+        small(class='error-message')=itemerrors.itemPrice
     label(for="quantity") Quantity 
     input(type="text" id="quantity" name="itemQuantity" value=`${item ? item.quantity : ''}`)
+    if locals.itemerrors
+        small(class='error-message')=itemerrors.itemQuantity
     button(type="submit") Save
     -console.log("cancel link " + locals.cancelLink)
     a(href=`${locals.cancelLink ? cancelLink : ''}`) cancel
