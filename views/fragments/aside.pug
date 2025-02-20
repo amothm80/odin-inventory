@@ -2,7 +2,8 @@ form(class='category-form shadow' action='/category/addCategory' method='post')
     input(class='category-input' type='text' name='categoryName' id='categoryName')
     if locals.errors 
         -const caterror = errors.find(error=>error.path == 'categoryName')
-        small(class='error-message')=caterror.msg
+        if caterror
+            small(class='error-message')=caterror.msg
     button(class='button category-submit' type='submit') Add Category
 if locals.categoriesResult
     each category in categoriesResult
