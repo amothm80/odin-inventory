@@ -19,7 +19,7 @@ form(class="item-card-container shadow" action="/item/saveItem" method="post")
     if locals.itemerrors
         small(class='error-message')=itemerrors.itemQuantity
     button(type="submit")
-        img(src='/images/save.svg')
+        img(src='/images/save.svg'  class="item-link-edit")
     a(href=`${locals.cancelLink ? cancelLink : ''}`) 
-        img(src='/images/x.svg')
+        img(src='/images/x.svg'  class="item-link-edit")
     //- button(type="cancel" onclick="history.back()") Cancel 
