@@ -1,15 +1,7 @@
-import { getAllItemsForCategoryDB, getItemByIdDB , addItemDB, updateItemDB} from "../db/queries.js";
+import { getAllItemsForCategoryDB, getItemByIdDB , addItemDB, updateItemDB,deleteItemDB} from "../db/queries.js";
 import { validationResult, matchedData, checkSchema } from "express-validator";
 import { querifyErrors } from "../utils/utils.js";
 
-export const checkCategorySchema = checkSchema({
-  categoryName: {
-    errorMessage: "Invalid category",
-    escape: true,
-    trim: true,
-    notEmpty: true,
-  },
-});
 
 export const checkItemSchema = checkSchema({
   itemId: {
@@ -116,4 +108,11 @@ export async function getAllItemsForCategory(req, res) {
     res.locals.itemerrors = {itemName,itemMake,itemPrice,itemQuantity}
   }
   res.status(200).render("index");
+}
+
+export async function deleteItem(req,res){
+  console.log(req.params)
+  const {itemId} = req.params
+  await deleteItemDB(Number(itemId))
+  res.redirect(new URL(req.get("Referrer")))
 }

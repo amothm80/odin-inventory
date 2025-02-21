@@ -1,4 +1,4 @@
-import { getAllCategoriesDB, addCategoryDB, updateCategoryDB } from "../db/queries.js";
+import { getAllCategoriesDB, addCategoryDB, updateCategoryDB ,deleteCategoryDB} from "../db/queries.js";
 import { validationResult, matchedData, checkSchema } from "express-validator";
 export async function getAllCategories(req, res, next) {
   const categoriesResult = await getAllCategoriesDB();
@@ -45,7 +45,7 @@ export async function addCategory(req, res, next) {
   const result = validationResult(req);
   if (result.isEmpty()) {
     const data = matchedData(req);
-    await updateCategoryDB(data.categoryName);
+    await addCategoryDB(data.categoryName);
     res.redirect("/");
   } else {
     console.log(result);
@@ -72,4 +72,10 @@ export async function saveCategory(req, res, next) {
     res.locals.errors = result.array();
     res.status(400).render("index");
   }
+}
+
+export async function deleteCategory(req,res){
+  const {categoryID} = req.params
+  await deleteCategoryDB(Number(categoryID))
+  res.redirect('/')
 }
