@@ -10,8 +10,9 @@ else
             p <span>by</span> #{item.make}
             p.items-right #{item.quantity} <span>item(s) left</span>
             a(href="/item/editItem/"+item.id)
-                button Edit Item
+                img(src='/images/pencil.svg')
             a(href="/item/deleteItem/"+item.id)
-                button Delete Item
+                img(src='/images/trash.svg')
+
                 
             //- button(onclick="history.back()")

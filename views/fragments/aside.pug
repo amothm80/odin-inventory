@@ -14,11 +14,13 @@ if locals.categoriesResult
             "category-link-container-selected": sel_cat==true, 
             "category-link-container": sel_cat==false})
             if locals.editCategory && locals.editCategory == category.id
-                form(action="saveCategory" method='post')
+                form(action="saveCategory" method='post' class='category-change-form')
                     input(type="text" id='categoryID' name='categoryID' value=`${category.id}` style="display:none") 
                     input(type="text" id='categoryName' name='categoryName' value=`${category.name}` ) 
-                    button(type='submit') Save 
-                    a(href='/category/'+category.id) Cancel
+                    button(type='submit') 
+                        img(src='/images/save.svg') 
+                    a(href='/category/'+category.id) 
+                        img(src='/images/x.svg')
 
             else
                 a(class={
@@ -26,6 +28,6 @@ if locals.categoriesResult
                     "category-link": sel_cat==false} 
                     href='/category/'+category.id)=category.name
                 a(href='/category/'+category.id+'/edit')
-                    button edit
+                    img(src='/images/pencil.svg')
                 a(href='/category/'+category.id+'/delete')
-                    button delete 
+                    img(src='/images/trash.svg') 
