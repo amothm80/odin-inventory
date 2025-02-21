@@ -2,13 +2,13 @@ import pool from "./pool.js";
 
 //read categories
 export async function getAllCategoriesDB() {
-  const { rows } = await pool.query("SELECT * FROM categories");
+  const { rows } = await pool.query("SELECT * FROM categories order by id");
   return rows;
 }
 
 //read items
 export async function getAllItemsForCategoryDB(catId) {
-  const { rows } = await pool.query("SELECT * FROM items where category = $1",[catId]);
+  const { rows } = await pool.query("SELECT * FROM items where category = $1 order by id",[catId]);
   return rows;
 }
 
@@ -33,7 +33,9 @@ export async function addItemDB(name, make, price, quantity, cateogry) {
 
 //update category
 export async function updateCategoryDB(id, name) {
-  await pool.query("UPDATE categories SET name = $1 where id = $2", [name, id]);
+  const result = await pool.query("UPDATE categories SET name = $1 where id = $2", [name, id]);
+  console.log(result)
+
 }
 
 //update item
