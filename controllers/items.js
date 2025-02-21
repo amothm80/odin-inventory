@@ -12,6 +12,10 @@ export const checkCategorySchema = checkSchema({
 });
 
 export const checkItemSchema = checkSchema({
+  itemId: {
+    escape: true,
+    trim: true,
+  },
   itemName: {
     errorMessage: "Invalid item name",
     escape: true,
