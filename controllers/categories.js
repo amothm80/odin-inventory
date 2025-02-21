@@ -29,6 +29,10 @@ export async function checkAddItemInCategory(req,res,next){
 }
 
 export const checkCategorySchema = checkSchema({
+  categoryID: {
+    escape: true,
+    trim: true,
+  },
   categoryName: {
     errorMessage: "Invalid category",
     escape: true,
@@ -61,9 +65,7 @@ export async function saveCategory(req, res, next) {
   if (result.isEmpty()) {
 
     const data = matchedData(req);
-    console.log(data)
-    console.log(data.categoryID)
-    // await updateCategoryDB(Number(data.categoryID),data.categoryName)
+    await updateCategoryDB(Number(data.categoryID),data.categoryName)
     res.redirect("/");
   } else {
     console.log(result);

@@ -15,7 +15,7 @@ if locals.categoriesResult
             "category-link-container": sel_cat==false})
             if locals.editCategory && locals.editCategory == category.id
                 form(action="saveCategory" method='post')
-                    input(type="text" id='categoryID' name='categoryID' value=`${category.id}` ) 
+                    input(type="text" id='categoryID' name='categoryID' value=`${category.id}` style="display:none") 
                     input(type="text" id='categoryName' name='categoryName' value=`${category.name}` ) 
                     button(type='submit') Save 
                     a(href='/category/'+category.id) Cancel
