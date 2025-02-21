@@ -13,11 +13,19 @@ if locals.categoriesResult
         div(class={
             "category-link-container-selected": sel_cat==true, 
             "category-link-container": sel_cat==false})
-            a(class={
-                "category-link-selected": sel_cat==true, 
-                "category-link": sel_cat==false} 
-                href='/category/'+category.id)=category.name
-            a(href='/category/'+category.id+'/edit')
-                button edit
-            a(href='/category/'+category.id+'/delete')
-                button delete 
+            if locals.editCategory && locals.editCategory == category.id
+                form(action="saveCategory" method='post')
+                    input(type="text" id='categoryID' name='categoryID' value=`${category.id}` ) 
+                    input(type="text" id='categoryName' name='categoryName' value=`${category.name}` ) 
+                    button(type='submit') Save 
+                    a(href='/category/'+category.id) Cancel
+
+            else
+                a(class={
+                    "category-link-selected": sel_cat==true, 
+                    "category-link": sel_cat==false} 
+                    href='/category/'+category.id)=category.name
+                a(href='/category/'+category.id+'/edit')
+                    button edit
+                a(href='/category/'+category.id+'/delete')
+                    button delete 

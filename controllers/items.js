@@ -1,4 +1,4 @@
-import { getAllItemsForCategoryDB, getItemByIdDB } from "../db/queries.js";
+import { getAllItemsForCategoryDB, getItemByIdDB , addItemDB, updateItemDB} from "../db/queries.js";
 import { validationResult, matchedData, checkSchema } from "express-validator";
 import { querifyErrors } from "../utils/utils.js";
 
@@ -44,26 +44,32 @@ export const checkItemSchema = checkSchema({
     // notEmpty: true,
     isNumeric: true,
   },
+  itemCategory: {
+    errorMessage: "Invalid item category",
+    escape: true,
+    trim: true,
+    notEmpty: true,
+    isNumeric: true,
+  },
 });
 
 export async function saveItem(req, res, next) {
+  console.log(req.body)
   const result = validationResult(req);
   // console.log(result.array())
   const referrer = new URL(req.get("Referrer"));
+  let addItemParam = referrer.searchParams.get("addItem");
+  let editItemParam = referrer.searchParams.get("editItem");
   if (result.isEmpty()) {
     const data = matchedData(req);
-    // console.log("item data");
-    // console.log(data);
-    // await addCategoryDB(data.categoryName);
-    // res.redirect("/");
     console.log("save item params");
-    // const refererPath = new URL(req.get("Referrer")).pathname;
-    const param = referrer.searchParams.get("editItem");
-    console.log(param);
+    if (addItemParam){
+      await addItemDB(data.itemName, data.itemMake, data.itemPrice, data.itemQuantity, data.itemCategory)
+    }else{
+      await updateItemDB(data.itemId, data.itemName, data.itemMake, data.itemPrice, data.itemQuantity, data.itemCategory)
+    }
     res.redirect(referrer.pathname);
   } else {
-    let addItemParam = referrer.searchParams.get("addItem");
-    let editItemParam = referrer.searchParams.get("editItem");
     const errorsQuery = querifyErrors(result.array());
     addItemParam = addItemParam ? "addItem=" + addItemParam : "";
     editItemParam = editItemParam ? "editItem=" + editItemParam : "";
@@ -99,6 +105,7 @@ export async function getAllItemsForCategory(req, res) {
   if (categoryID) {
     itemsResult = await getAllItemsForCategoryDB(Number(categoryID));
     res.locals.itemsResult = itemsResult;
+    res.locals.categoryID = categoryID;
     // console.log(itemsResult);
   }
   if (errors){
