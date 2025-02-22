@@ -1,25 +1,29 @@
-form(class="item-card-container shadow" action="/item/saveItem" method="post")
+form(class="item-card-container shadow item-input-form" action="/item/saveItem" method="post")
     input(type="number" id="id" name="itemId" value=`${item?item.id : ''}` style="display:none")
-    label(for="name") Item Name 
-    input(type="text" id="name" name="itemName" value=`${item ? item.name : ''}`)
-    if locals.itemerrors
-        small(class='error-message')=itemerrors.itemName
-    label(for="make") Item Make 
-    input(type="text" id="make" name="itemMake" value=`${item ? item.make : ''}`)
-    if locals.itemerrors
-        small(class='error-message')=itemerrors.itemMake
-    label(for="price") Price 
-    input(type="number" id="price" name="itemPrice" value=`${item ? item.price : ''}`)
-    if locals.itemerrors
-        small(class='error-message')=itemerrors.itemPrice
-    label(for="quantity") Quantity 
-    input(type="text" id="quantity" name="itemQuantity" value=`${item ? item.quantity : ''}`)
-    label(for='cateogry') Category 
+    div.item-input-section
+        label(for="name") Item Name 
+        input(type="text" id="name" name="itemName" value=`${item ? item.name : ''}`)
+        if locals.itemerrors
+            small(class='error-message')=itemerrors.itemName
+    div.item-input-section
+        label(for="make") Item Make 
+        input(type="text" id="make" name="itemMake" value=`${item ? item.make : ''}`)
+        if locals.itemerrors
+            small(class='error-message')=itemerrors.itemMake
+    div.item-input-section
+        label(for="price") Price 
+        input(type="number" id="price" name="itemPrice" value=`${item ? item.price : ''}`)
+        if locals.itemerrors
+            small(class='error-message')=itemerrors.itemPrice
+    div.item-input-section
+        label(for="quantity") Quantity 
+        input(type="number" id="quantity" name="itemQuantity" value=`${item ? item.quantity : ''}`)
+        if locals.itemerrors
+            small(class='error-message')=itemerrors.itemQuantity
     input(type='text' id='category' name='itemCategory' value=`${locals.categoryID}` style="display:none")
-    if locals.itemerrors
-        small(class='error-message')=itemerrors.itemQuantity
-    button(type="submit")
-        img(src='/images/save.svg'  class="item-link-edit")
-    a(href=`${locals.cancelLink ? cancelLink : ''}`) 
-        img(src='/images/x.svg'  class="item-link-edit")
-    //- button(type="cancel" onclick="history.back()") Cancel 
+    div.item-input-form-buttons
+        button(type="submit" class='submit-button')
+            img(src='/images/save.svg'  class="item-link-edit")
+        a(href=`${locals.cancelLink ? cancelLink : ''}`) 
+            img(src='/images/x.svg'  class="item-link-edit")
+        //- button(type="cancel" onclick="history.back()") Cancel 

@@ -50,15 +50,12 @@ export const checkItemSchema = checkSchema({
 });
 
 export async function saveItem(req, res, next) {
-  console.log(req.body)
   const result = validationResult(req);
-  // console.log(result.array())
   const referrer = new URL(req.get("Referrer"));
   let addItemParam = referrer.searchParams.get("addItem");
   let editItemParam = referrer.searchParams.get("editItem");
   if (result.isEmpty()) {
     const data = matchedData(req);
-    console.log("save item params");
     if (addItemParam){
       await addItemDB(data.itemName, data.itemMake, data.itemPrice, data.itemQuantity, data.itemCategory)
     }else{
@@ -94,15 +91,14 @@ export async function getItemById(req, res, next) {
 }
 
 export async function getAllItemsForCategory(req, res) {
-  console.log("get all items");
   const {errors, itemName,itemMake,itemPrice,itemQuantity} = req.query
   const { categoryID } = req.params;
   let itemsResult;
   if (categoryID) {
     itemsResult = await getAllItemsForCategoryDB(Number(categoryID));
+
     res.locals.itemsResult = itemsResult;
     res.locals.categoryID = categoryID;
-    // console.log(itemsResult);
   }
   if (errors){
     res.locals.itemerrors = {itemName,itemMake,itemPrice,itemQuantity}
@@ -111,7 +107,6 @@ export async function getAllItemsForCategory(req, res) {
 }
 
 export async function deleteItem(req,res){
-  console.log(req.params)
   const {itemId} = req.params
   await deleteItemDB(Number(itemId))
   res.redirect(new URL(req.get("Referrer")))

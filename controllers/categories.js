@@ -48,14 +48,12 @@ export async function addCategory(req, res, next) {
     await addCategoryDB(data.categoryName);
     res.redirect("/");
   } else {
-    console.log(result);
     res.locals.errors = result.array();
     res.status(400).render("index");
   }
 }
 
 export async function editCategory(req,res){
-  // console.log(req.params)
   res.locals.editCategory = req.params.categoryID
   res.status(400).render("index");
 }
@@ -68,7 +66,6 @@ export async function saveCategory(req, res, next) {
     await updateCategoryDB(Number(data.categoryID),data.categoryName)
     res.redirect("/");
   } else {
-    console.log(result);
     res.locals.errors = result.array();
     res.status(400).render("index");
   }

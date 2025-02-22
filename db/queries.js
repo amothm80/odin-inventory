@@ -8,8 +8,8 @@ export async function getAllCategoriesDB() {
 
 //read items
 export async function getAllItemsForCategoryDB(catId) {
-  const { rows } = await pool.query("SELECT * FROM items where category = $1 order by id",[catId]);
-  return rows;
+    const { rows } = await pool.query("SELECT * FROM items where category = $1 order by id",[catId]);
+    return rows;
 }
 
 export async function getItemByIdDB(id){

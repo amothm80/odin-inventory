@@ -17,7 +17,7 @@ if locals.categoriesResult
                 form(action="saveCategory" method='post' class='category-change-form')
                     input(type="text" id='categoryID' name='categoryID' value=`${category.id}` style="display:none") 
                     input(type="text" id='categoryName' name='categoryName' value=`${category.name}` ) 
-                    button(type='submit') 
+                    button(type='submit' class='submit-button') 
                         img(src='/images/save.svg') 
                     a(href='/category/'+category.id) 
                         img(src='/images/x.svg')

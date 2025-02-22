@@ -11,7 +11,7 @@ else
             p.items-right #{item.quantity} <span>item(s) left</span>
             a(href="/item/editItem/"+item.id)
                 img(src='/images/pencil.svg' class="item-link-edit")
-            a(href="/item/deleteItem/"+item.id)
+            a.items-right(href="/item/deleteItem/"+item.id)
                 img(src='/images/trash.svg' class="item-link-edit")
 
                 

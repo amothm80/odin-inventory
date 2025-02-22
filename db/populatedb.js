@@ -37,7 +37,7 @@ insert into items (name,make,price,quantity,category) values
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.DBUSER}:${process.env.DBPASSWORD}@localhost:5432/odin_inventory`,
+    connectionString: `postgresql://${process.env.DBUSER}:${process.env.DBPASSWORD}@${process.env.DBHOST}:5432/odin_inventory`,
   });
   await client.connect();
   await client.query(SQL);

@@ -86,8 +86,7 @@ main {
   width: 80%;
 }
 
-.category-change-form button {
-  align-self: center;
+.submit-button {
   flex-shrink: 0;
   background-color: transparent;
   border: 0px;
@@ -235,4 +234,37 @@ a {
 
 .item-link-edit:hover{
   filter: opacity(100%) 
+}
+
+.item-input-form{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.item-input-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-input-section label{
+  color: var(--text50);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.item-input-section input{
+  background-color: var(--static15);
+  border: 0px;
+  border-radius: 0.2rem;
+  height: 2rem;
+}
+
+.item-input-form-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

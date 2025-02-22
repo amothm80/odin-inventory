@@ -1,0 +1,11 @@
+html(lang="en")
+    head
+        include fragments/head
+    body
+        script 0
+        h2 400
+        h3 server error
+        if locals.error500
+            h3=error500
+        h3 please go <a href="/">back</a>
+        
